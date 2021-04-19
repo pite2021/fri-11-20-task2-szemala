@@ -63,7 +63,6 @@ class Bank(mp.Process):
     else:
       Env.transfer(client1, client2, sum)
 
-  
   def cash_input(self, client, sum):
     if client in self.client_list:
       client.money += sum
@@ -107,13 +106,13 @@ class Client:
 
 if __name__ == "__main__":
   bank1 = Bank('bank1', 100000)
-  bank1.start()
-  bank1.join()
   bank2 = Bank('bank2', 150000)
-  bank2.start()
-  bank2.join()
   bank3 = Bank('bank3', 200000)
+  bank1.start()  
+  bank2.start() 
   bank3.start()
+  bank1.join()
+  bank2.join()
   bank3.join()
    
   names = ['Luke','Anna', 'Tomasz', 'Kamil', 'Agnieszka', 'Julian', 'Zoltan', 'Arwena']
