@@ -5,21 +5,6 @@ import multiprocessing as mp
 bank_list = {}
 
 class Env():
-  def __init__(self, budget):
-   
-    self.budget = budget
-
-    @property
-    def budget(self):
-      print('Budżet to: ')
-      return self._budget
-    
-    @budget.setter
-    def budget(self, budget):
-      if budget > 0:
-        self._budget = budget
-      else: 
-        raise ValueError()
 
   @staticmethod
   def transfer(client1, client2, sum):
@@ -41,6 +26,7 @@ class Env():
 
 
 class Bank(mp.Process):
+  
   def __init__(self, bank_name, budget):
     self.client_list = []
     self.bank_name = bank_name
