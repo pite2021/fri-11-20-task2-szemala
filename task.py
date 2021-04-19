@@ -26,7 +26,6 @@ class Env():
 
 
 class Bank(mp.Process):
-  
   def __init__(self, bank_name, budget):
     self.client_list = []
     self.bank_name = bank_name
